@@ -51,7 +51,7 @@ export function ArtifactBlocks({
               className="mb-2 mr-2 inline-flex min-w-[140px] flex-col rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2"
             >
               <span className="text-xs text-zinc-500">{block.label}</span>
-              <span className="font-mono text-lg text-cyan-300">{block.value}</span>
+              <span className="font-mono text-lg text-violet-300">{block.value}</span>
             </div>
           );
         }

@@ -21,7 +21,7 @@ export function AgentProgress({
       </div>
       <div className="h-2 overflow-hidden rounded-full bg-white/10">
         <motion.div
-          className="h-full rounded-full bg-gradient-to-r from-violet-500 via-fuchsia-500 to-cyan-400"
+          className="h-full rounded-full bg-gradient-to-r from-violet-600 to-violet-400"
           initial={{ width: 0 }}
           animate={{ width: `${Math.min(100, progress * 100)}%` }}
           transition={{ ease: "easeOut", duration: 0.35 }}

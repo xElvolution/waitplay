@@ -1,5 +1,4 @@
-import { Navbar } from "@/components/landing/Navbar";
-import { Footer } from "@/components/landing/Footer";
+import { AppShell } from "@/components/layout/AppShell";
 import { WaitSession } from "@/components/wait/WaitSession";
 
 export const metadata = {
@@ -9,12 +8,8 @@ export const metadata = {
 
 export default function SessionPage() {
   return (
-    <>
-      <Navbar />
-      <main className="flex-1 pb-10">
-        <WaitSession />
-      </main>
-      <Footer />
-    </>
+    <AppShell>
+      <WaitSession />
+    </AppShell>
   );
 }

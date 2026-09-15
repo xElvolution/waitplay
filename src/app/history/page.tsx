@@ -1,5 +1,4 @@
-import { Navbar } from "@/components/landing/Navbar";
-import { Footer } from "@/components/landing/Footer";
+import { AppShell } from "@/components/layout/AppShell";
 import { HistoryClient } from "@/components/wait/HistoryClient";
 
 export const metadata = {
@@ -9,12 +8,8 @@ export const metadata = {
 
 export default function HistoryPage() {
   return (
-    <>
-      <Navbar />
-      <main className="flex-1 pb-10">
-        <HistoryClient />
-      </main>
-      <Footer />
-    </>
+    <AppShell>
+      <HistoryClient />
+    </AppShell>
   );
 }

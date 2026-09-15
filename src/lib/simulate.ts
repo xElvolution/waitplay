@@ -1,4 +1,4 @@
-/** Compatibility re-exports — prefer `@waitplay/sdk`. */
+/** Compatibility re-exports - prefer `@waitplay/sdk`. */
 export {
   TOOL_OPTIONS,
   STARTER_PROMPTS,

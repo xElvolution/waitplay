@@ -64,29 +64,31 @@ export function ArtifactClient({ id }: { id: string }) {
 
   if (!artifact) {
     return (
-      <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6">
-        <h1 className="text-2xl font-semibold text-white">Artifact not found</h1>
-        <p className="mt-3 text-zinc-400">
-          This share link may be incomplete, or the run only exists in another
-          browser. Start a fresh wait session and create a new shareable page.
-        </p>
-        <div className="mt-6">
-          <Link href="/session">
-            <Button>Go to session</Button>
-          </Link>
+      <div className="mx-auto max-w-3xl px-3 py-12 text-center sm:px-5">
+        <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] px-6 py-10 backdrop-blur-xl">
+          <h1 className="text-xl font-semibold tracking-tight text-white">Artifact not found</h1>
+          <p className="mx-auto mt-3 max-w-md text-sm text-zinc-400">
+            This share link may be incomplete, or the run only exists in another
+            browser. Start a fresh wait session and create a new shareable page.
+          </p>
+          <div className="mt-6">
+            <Link href="/session">
+              <Button>Go to session</Button>
+            </Link>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="mx-auto max-w-3xl space-y-6 px-4 py-8 sm:px-6">
+    <div className="mx-auto max-w-3xl space-y-4 px-3 py-4 sm:px-5 sm:py-5">
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
       >
         <div className="flex flex-wrap items-center gap-2">
-          <Badge tone="emerald">Shareable artifact</Badge>
+          <Badge tone="success">Shareable artifact</Badge>
           <Badge tone="violet">{MODE_LABEL[artifact.modePlayed]}</Badge>
         </div>
         <h1 className="mt-4 text-3xl font-semibold tracking-tight text-white">
@@ -159,7 +161,7 @@ export function ArtifactClient({ id }: { id: string }) {
         </Card>
       )}
 
-      <Card className="p-5 sm:p-6">
+      <Card className="p-4 sm:p-5">
         <ArtifactBlocks blocks={artifact.blocks} />
       </Card>
     </div>

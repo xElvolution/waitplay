@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Waitplay | Make Waiting for AI Fun",
     description:
-      "Turn agent latency into play with Waitplay — reusable wait overlay + streaming worker.",
+      "Turn agent latency into play with Waitplay. Reusable wait overlay and streaming worker.",
     type: "website",
   },
 };
@@ -35,7 +35,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#07070c] text-zinc-100">
+      <body className="wp-canvas min-h-full flex flex-col bg-[#050506] text-zinc-100">
         {children}
       </body>
     </html>

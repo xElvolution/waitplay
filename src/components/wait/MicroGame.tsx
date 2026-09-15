@@ -92,7 +92,7 @@ export function MicroGame({
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.4, opacity: 0 }}
               onClick={() => hit(target)}
-              className="absolute h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-fuchsia-400 to-cyan-300 shadow-[0_0_24px_rgba(217,70,239,0.55)]"
+              className="absolute h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-violet-400 to-violet-300 shadow-[0_0_24px_rgba(139,92,246,0.55)]"
               style={{ left: `${target.x}%`, top: `${target.y}%` }}
               aria-label={`Hit target for ${target.points} points`}
             />
@@ -100,7 +100,7 @@ export function MicroGame({
         </AnimatePresence>
         {!active && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/40 text-sm text-zinc-300">
-            Waiting for the next run
+            Start a session to play
           </div>
         )}
       </div>

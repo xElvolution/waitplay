@@ -73,7 +73,7 @@ export function VoteNextTool({
               />
               <div className="relative flex items-start gap-3">
                 <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/5">
-                  <Icon className="h-4 w-4 text-cyan-300" />
+                  <Icon className="h-4 w-4 text-violet-300" />
                 </span>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center justify-between gap-2">

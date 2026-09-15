@@ -20,7 +20,7 @@ export function ArtifactPreview({
             Blocks stream in as the agent finishes each step.
           </p>
         </div>
-        <span className="rounded-full border border-white/10 px-2.5 py-1 font-mono text-xs text-cyan-300">
+        <span className="rounded-full border border-white/10 px-2.5 py-1 font-mono text-xs text-violet-300">
           {Math.round(progress * 100)}% streamed
         </span>
       </div>

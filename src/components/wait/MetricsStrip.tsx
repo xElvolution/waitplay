@@ -26,7 +26,7 @@ export function MetricsStrip({
       </Card>
       <Card className="px-4 py-3">
         <div className="text-xs text-zinc-500">Avg time to first useful output</div>
-        <div className="mt-1 font-mono text-2xl text-cyan-300">
+        <div className="mt-1 font-mono text-2xl text-violet-300">
           {metrics.ttfoSamples === 0 ? "n/a" : `${(avg / 1000).toFixed(1)}s`}
         </div>
         <div className="mt-1 text-xs text-zinc-500">

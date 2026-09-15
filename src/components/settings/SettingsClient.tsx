@@ -65,20 +65,19 @@ export function SettingsClient() {
   }
 
   return (
-    <div className="mx-auto max-w-3xl space-y-6 px-4 py-8 sm:px-6">
+    <div className="mx-auto max-w-3xl space-y-4 px-3 py-4 sm:px-5 sm:py-5">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <Badge tone="cyan">Settings</Badge>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white">
-            Product preferences
+          <Badge tone="violet">Settings</Badge>
+          <h1 className="mt-2 text-xl font-semibold tracking-tight text-white sm:text-2xl">
+            Settings
           </h1>
-          <p className="mt-2 text-sm text-zinc-400 sm:text-base">
-            Tune wait defaults, timing, and identity. Auth providers can plug in
-            without changing the wait layer.
+          <p className="mt-1 text-xs text-zinc-500 sm:text-sm">
+            Tune wait defaults, timing, and identity. Auth providers plug in without changing the wait layer.
           </p>
         </div>
-        <Link href="/session" className="text-sm text-violet-300 hover:text-violet-200">
-          Back to session
+        <Link href="/session" className="text-xs text-violet-300 hover:text-violet-200 sm:text-sm">
+          Open session
         </Link>
       </div>
 
@@ -151,7 +150,7 @@ export function SettingsClient() {
               />
               <p className="mt-2 text-xs text-zinc-500">
                 Scales real wall-clock step timing in the local worker. 1x is
-                about 30–45 seconds per run.
+                about 30 to 45 seconds per run.
               </p>
             </div>
 
@@ -194,7 +193,7 @@ export function SettingsClient() {
 
           <Card className="space-y-4 p-5 sm:p-6">
             <div className="flex flex-wrap items-center gap-2">
-              <Badge tone="amber">Auth-ready</Badge>
+              <Badge tone="muted">Auth-ready</Badge>
               <span className="text-sm text-zinc-400">
                 Anonymous identity active
               </span>
@@ -203,7 +202,7 @@ export function SettingsClient() {
               <div className="text-xs uppercase tracking-[0.14em] text-zinc-500">
                 User id
               </div>
-              <code className="mt-1 block break-all font-mono text-sm text-cyan-300">
+              <code className="mt-1 block break-all font-mono text-sm text-violet-300">
                 {userId}
               </code>
             </div>

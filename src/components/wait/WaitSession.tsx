@@ -396,27 +396,20 @@ export function WaitSession() {
   const displayXp = artifact?.xpEarned ?? sessionXp;
 
   return (
-    <div className="mx-auto max-w-6xl space-y-6 px-4 py-8 sm:px-6">
+    <div className="mx-auto max-w-6xl space-y-4 px-3 py-4 sm:px-5 sm:py-5 lg:px-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <Badge tone="violet">Wait session</Badge>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white">
-            Run an agent wait session
+          <h1 className="mt-2 text-xl font-semibold tracking-tight text-white sm:text-2xl">
+            Wait session
           </h1>
-          <p className="mt-2 max-w-2xl text-sm text-zinc-400 sm:text-base">
-            Local worker streams real multi-tool progress into the wait layer.
-            Track completion rate and time to first useful output while you
-            play, vote, or preview.
+          <p className="mt-1 max-w-2xl text-xs text-zinc-500 sm:text-sm">
+            Stream multi-tool progress into the wait layer. Track completion and TTFO while you play, vote, or preview.
           </p>
         </div>
-        <div className="flex gap-3 text-sm">
-          <Link href="/settings" className="text-zinc-400 hover:text-white">
-            Settings
-          </Link>
-          <Link href="/history" className="text-violet-300 hover:text-violet-200">
-            Open history
-          </Link>
-        </div>
+        <Link href="/history" className="text-xs text-violet-300 hover:text-violet-200 sm:text-sm">
+          View history
+        </Link>
       </div>
 
       {stats && <XPStreak stats={stats} sessionXp={displayXp} />}
@@ -435,8 +428,8 @@ export function WaitSession() {
         />
       )}
 
-      <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-        <Card className="p-5 sm:p-6">
+      <div className="grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
+        <Card className="p-4 sm:p-5">
           <label className="block text-sm font-medium text-zinc-300">
             Prompt
           </label>
@@ -445,7 +438,7 @@ export function WaitSession() {
             onChange={(e) => setPrompt(e.target.value)}
             disabled={running}
             rows={4}
-            className="mt-2 w-full resize-none rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none ring-violet-500/40 placeholder:text-zinc-600 focus:ring-2"
+            className="mt-2 w-full resize-none rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none ring-violet-500/50 placeholder:text-zinc-600 focus:ring-2"
             placeholder="What should the agent produce?"
           />
           <div className="mt-3 flex flex-wrap gap-2">
@@ -504,12 +497,12 @@ export function WaitSession() {
           </div>
         </Card>
 
-        <Card className="p-5 sm:p-6">
+        <Card className="p-4 sm:p-5">
           <AgentProgress steps={steps} progress={progress} />
         </Card>
       </div>
 
-      <Card className="p-5 sm:p-6">
+      <Card className="p-4 sm:p-5">
         <AnimatePresence mode="wait">
           <motion.div
             key={mode}
@@ -540,10 +533,10 @@ export function WaitSession() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <Card className="border-emerald-400/20 bg-emerald-500/5 p-5 sm:p-6">
+          <Card className="border-emerald-400/20 bg-emerald-500/[0.06] p-5 sm:p-6">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <Badge tone="emerald">Artifact ready</Badge>
+                <Badge tone="success">Artifact ready</Badge>
                 <h2 className="mt-2 text-xl font-semibold text-white">
                   {artifact.title}
                 </h2>

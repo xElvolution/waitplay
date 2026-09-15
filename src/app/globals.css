@@ -1,8 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --background: #07070c;
-  --foreground: #f4f4f5;
+  --background: #050506;
+  --foreground: #fafafa;
+  --muted: #a1a1aa;
+  --muted-dim: #71717a;
+  --panel: rgba(255, 255, 255, 0.03);
+  --panel-strong: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --accent: #8b5cf6;
+  --accent-soft: #a78bfa;
+  --accent-glow: rgba(139, 92, 246, 0.35);
+  --accent-dim: rgba(139, 92, 246, 0.12);
+  --success: #34d399;
+  --danger: #fb7185;
+  --radius: 1rem;
+  --radius-sm: 0.75rem;
 }
 
 @theme inline {
@@ -14,6 +28,7 @@
 
 html {
   color-scheme: dark;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -21,13 +36,102 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   min-height: 100%;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: rgba(168, 85, 247, 0.35);
+  background: rgba(139, 92, 246, 0.4);
   color: white;
 }
 
 * {
-  border-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--border);
+}
+
+/* Canvas: soft violet glow + subtle grid */
+.wp-canvas {
+  position: relative;
+  isolation: isolate;
+}
+
+.wp-canvas::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.22), transparent 55%),
+    radial-gradient(ellipse 40% 30% at 90% 10%, rgba(139, 92, 246, 0.08), transparent 50%),
+    var(--background);
+}
+
+.wp-canvas::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 20%, transparent 75%);
+  opacity: 0.7;
+}
+
+.wp-glass {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+    0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.wp-glass-strong {
+  background: var(--panel-strong);
+  border: 1px solid var(--border-strong);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+    0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+.wp-accent-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--accent);
+}
+
+.wp-shimmer {
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.04) 45%,
+    transparent 65%
+  );
+  background-size: 200% 100%;
+  animation: wp-shimmer 2.4s ease-in-out infinite;
+}
+
+@keyframes wp-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes wp-pulse-soft {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.85; }
+}
+
+.wp-pulse-soft {
+  animation: wp-pulse-soft 2s ease-in-out infinite;
+}
+
+/* Prefer calm scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.35) transparent;
 }

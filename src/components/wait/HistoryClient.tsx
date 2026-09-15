@@ -41,16 +41,15 @@ export function HistoryClient() {
   }, []);
 
   return (
-    <div className="mx-auto max-w-6xl space-y-6 px-4 py-8 sm:px-6">
+    <div className="mx-auto max-w-6xl space-y-4 px-3 py-4 sm:px-5 sm:py-5 lg:px-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <Badge tone="cyan">Session history</Badge>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white">
-            Your Waitplay runs
+          <Badge tone="violet">Session history</Badge>
+          <h1 className="mt-2 text-xl font-semibold tracking-tight text-white sm:text-2xl">
+            History
           </h1>
-          <p className="mt-2 max-w-2xl text-sm text-zinc-400 sm:text-base">
-            Persisted on the server and mirrored in this browser. Reopen any
-            artifact or start a fresh wait session whenever you want.
+          <p className="mt-1 max-w-2xl text-xs text-zinc-500 sm:text-sm">
+            Persisted on the server and mirrored in this browser. Reopen artifacts or start a fresh session.
           </p>
         </div>
         <Link href="/session">
@@ -61,19 +60,24 @@ export function HistoryClient() {
       {stats && <XPStreak stats={stats} sessionXp={0} />}
 
       {sessions.length === 0 ? (
-        <Card className="p-8 text-center">
-          <Sparkles className="mx-auto h-8 w-8 text-violet-300" />
-          <h2 className="mt-4 text-lg font-medium text-white">
-            No sessions yet
-          </h2>
-          <p className="mx-auto mt-2 max-w-md text-sm text-zinc-400">
-            Run a wait session once and your waits, XP, and artifacts will show
-            up here.
-          </p>
-          <div className="mt-6">
-            <Link href="/session">
-              <Button>Start session</Button>
-            </Link>
+        <Card className="relative overflow-hidden p-10 text-center">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.14),transparent_55%)]" />
+          <div className="relative">
+            <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-violet-400/25 bg-violet-500/10">
+              <Sparkles className="h-5 w-5 text-violet-300" />
+            </span>
+            <h2 className="mt-5 text-lg font-medium tracking-tight text-white">
+              No sessions yet
+            </h2>
+            <p className="mx-auto mt-2 max-w-md text-sm text-zinc-400">
+              Run a wait session once and your waits, XP, and artifacts will show
+              up here.
+            </p>
+            <div className="mt-6">
+              <Link href="/session">
+                <Button>Start session</Button>
+              </Link>
+            </div>
           </div>
         </Card>
       ) : (
