@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Waitplay
 
-## Getting Started
+Make Waiting for AI Fun.
 
-First, run the development server:
+Every AI product makes people stare at spinners for 30 to 180 seconds. That dead time is churn. **Waitplay** is the wait layer that turns agent latency into co-steering and micro rewards so more runs finish.
+
+Built for Commons Made by **XElvolution**.
+
+## The pain
+
+Long agent runs feel empty. Users bounce before the artifact lands. Blank progress bars do not create trust, agency, or a reason to stay.
+
+## The product
+
+Waitplay sits on top of the wait:
+
+- **Pulse Tap micro-game** keeps attention with combo XP
+- **Vote next tool** lets people co-steer the agent path
+- **Partial artifact preview** delivers time to first useful output in seconds
+- **XP streaks + session history** make finishing habitual
+- **Shareable artifact pages** turn completed waits into something you can send
+
+## Metrics that matter
+
+| Signal | Why it wins |
+| --- | --- |
+| Completion rate | Did the user finish the agent run? |
+| Time to first useful output (TTFO) | How fast did they see something valuable? |
+
+Demo comparisons on the landing page show Waitplay lifting completion versus a blank spinner baseline and cutting TTFO with streamed preview blocks.
+
+## Quick start
 
 ```bash
+cp .env.example .env.local
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Demo path
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. `/` landing with pain, metrics, and modes
+2. `/demo` interactive wait session with simulated agent latency
+3. Finish a run and open the shareable `/artifact/[id]` page
+4. Revisit sessions on `/history`
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` local development
+- `npm run build` production build
+- `npm start` serve production build
+- `npm run lint` ESLint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Next.js App Router, TypeScript, Tailwind CSS, Framer Motion, Lucide.
 
-## Deploy on Vercel
+## Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Sole author: **XElvolution** ([GitHub](https://github.com/xElvolution))
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+MIT
