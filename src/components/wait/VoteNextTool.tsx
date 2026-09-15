@@ -10,7 +10,7 @@ import {
   Mail,
   Search,
 } from "lucide-react";
-import { TOOL_OPTIONS } from "@/lib/simulate";
+import { TOOL_OPTIONS } from "@waitplay/sdk";
 import type { ToolOption } from "@/lib/types";
 
 const ICONS = {

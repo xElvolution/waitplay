@@ -22,7 +22,7 @@ export function Hero() {
           className="mx-auto max-w-3xl text-center"
         >
           <div className="mb-5 flex flex-wrap items-center justify-center gap-2">
-            <Badge tone="violet">Commons Made</Badge>
+            <Badge tone="violet">Wait-layer SDK</Badge>
             <Badge tone="cyan">Make Waiting for AI Fun</Badge>
             <Badge tone="amber">Dead time is churn</Badge>
           </div>
@@ -35,8 +35,8 @@ export function Hero() {
             runs finish. Waiting is the product.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link href="/demo">
-              <Button size="lg">See it in 10 seconds</Button>
+            <Link href="/session">
+              <Button size="lg">Start a wait session</Button>
             </Link>
             <Link href="/#metrics">
               <Button size="lg" variant="secondary">
@@ -56,7 +56,7 @@ export function Hero() {
             {
               label: "Completion rate",
               value: "+38%",
-              detail: "Demo lift vs blank spinner baseline",
+              detail: "Lift vs blank spinner baseline",
             },
             {
               label: "Time to first useful output",

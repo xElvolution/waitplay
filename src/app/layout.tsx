@@ -15,12 +15,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Waitplay | Make Waiting for AI Fun",
   description:
-    "Interactive wait layer for AI agents. Micro-games, tool votes, partial artifact previews, and XP streaks while models think.",
+    "Wait-layer SDK and app for AI agents. Micro-games, tool votes, partial artifact previews, and XP streaks while models think.",
   authors: [{ name: "XElvolution" }],
   openGraph: {
     title: "Waitplay | Make Waiting for AI Fun",
     description:
-      "Turn agent latency into play with Waitplay for Commons Made.",
+      "Turn agent latency into play with Waitplay — reusable wait overlay + streaming worker.",
     type: "website",
   },
 };

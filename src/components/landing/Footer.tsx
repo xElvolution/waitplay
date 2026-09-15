@@ -7,15 +7,18 @@ export function Footer() {
         <div>
           <p className="font-medium text-white">Waitplay</p>
           <p className="mt-1 text-sm text-zinc-500">
-            Make Waiting for AI Fun. Built for Commons Made by XElvolution.
+            Make Waiting for AI Fun. Wait-layer SDK + app by XElvolution.
           </p>
         </div>
         <div className="flex gap-4 text-sm text-zinc-400">
-          <Link href="/demo" className="hover:text-white">
-            Demo
+          <Link href="/session" className="hover:text-white">
+            Session
           </Link>
           <Link href="/history" className="hover:text-white">
             History
+          </Link>
+          <Link href="/settings" className="hover:text-white">
+            Settings
           </Link>
           <a
             href="https://github.com/xElvolution/waitplay"

@@ -24,6 +24,20 @@ export function HistoryClient() {
   useEffect(() => {
     setSessions(getSessions());
     setStats(getStats());
+    void fetch("/api/sessions")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data: { sessions?: SessionRecord[] } | null) => {
+        if (data?.sessions?.length) {
+          setSessions((local) => {
+            const map = new Map<string, SessionRecord>();
+            for (const s of [...data.sessions!, ...local]) map.set(s.id, s);
+            return Array.from(map.values()).sort((a, b) =>
+              b.createdAt.localeCompare(a.createdAt)
+            );
+          });
+        }
+      })
+      .catch(() => undefined);
   }, []);
 
   return (
@@ -35,11 +49,11 @@ export function HistoryClient() {
             Your Waitplay runs
           </h1>
           <p className="mt-2 max-w-2xl text-sm text-zinc-400 sm:text-base">
-            Stored in this browser. Reopen any artifact or start a fresh demo
-            session whenever you want.
+            Persisted on the server and mirrored in this browser. Reopen any
+            artifact or start a fresh wait session whenever you want.
           </p>
         </div>
-        <Link href="/demo">
+        <Link href="/session">
           <Button>New session</Button>
         </Link>
       </div>
@@ -53,12 +67,12 @@ export function HistoryClient() {
             No sessions yet
           </h2>
           <p className="mx-auto mt-2 max-w-md text-sm text-zinc-400">
-            Run the interactive demo once and your waits, XP, and artifacts will
-            show up here.
+            Run a wait session once and your waits, XP, and artifacts will show
+            up here.
           </p>
           <div className="mt-6">
-            <Link href="/demo">
-              <Button>Launch demo</Button>
+            <Link href="/session">
+              <Button>Start session</Button>
             </Link>
           </div>
         </Card>
@@ -68,7 +82,7 @@ export function HistoryClient() {
             const artifact = getArtifact(session.artifactId);
             const href = artifact
               ? `/artifact/${artifact.id}?d=${encodeArtifact(artifact)}`
-              : `/demo`;
+              : `/artifact/${session.artifactId}`;
             return (
               <Card key={session.id} className="p-5">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

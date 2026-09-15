@@ -27,13 +27,29 @@ export function ArtifactClient({ id }: { id: string }) {
   const encoded = searchParams.get("d");
 
   useEffect(() => {
+    let cancelled = false;
     const fromQuery = encoded ? decodeArtifact(encoded) : null;
     if (fromQuery) {
       saveArtifact(fromQuery);
       setArtifact(fromQuery);
       return;
     }
-    setArtifact(getArtifact(id));
+    const local = getArtifact(id);
+    if (local) {
+      setArtifact(local);
+      return;
+    }
+    void fetch(`/api/artifacts/${id}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (cancelled || !data?.id) return;
+        saveArtifact(data);
+        setArtifact(data);
+      })
+      .catch(() => undefined);
+    return () => {
+      cancelled = true;
+    };
   }, [encoded, id]);
 
   const meta = useMemo(() => {
@@ -52,11 +68,11 @@ export function ArtifactClient({ id }: { id: string }) {
         <h1 className="text-2xl font-semibold text-white">Artifact not found</h1>
         <p className="mt-3 text-zinc-400">
           This share link may be incomplete, or the run only exists in another
-          browser. Start a fresh demo and create a new shareable page.
+          browser. Start a fresh wait session and create a new shareable page.
         </p>
         <div className="mt-6">
-          <Link href="/demo">
-            <Button>Go to demo</Button>
+          <Link href="/session">
+            <Button>Go to session</Button>
           </Link>
         </div>
       </div>
@@ -93,7 +109,7 @@ export function ArtifactClient({ id }: { id: string }) {
             <Copy className="h-4 w-4" />
             {copied ? "Copied" : "Copy link"}
           </Button>
-          <Link href="/demo">
+          <Link href="/session">
             <Button size="sm">
               Run your own wait
               <ExternalLink className="h-4 w-4" />

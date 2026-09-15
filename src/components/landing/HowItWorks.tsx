@@ -6,7 +6,7 @@ const steps = [
   {
     n: "01",
     title: "Start a real agent wait",
-    body: "Drop in a prompt. Waitplay simulates multi-tool latency the way production agents feel: 30s-class think time, visible steps, no fake instant magic.",
+    body: "Drop in a prompt. The local worker runs multi-tool jobs with real wall-clock timing and streams each step into the wait layer.",
   },
   {
     n: "02",
@@ -29,7 +29,7 @@ export function HowItWorks() {
             How it works
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Beautiful in ten seconds. Sticky for the full run.
+            Embed the wait layer. Keep people through the full run.
           </h2>
         </div>
         <div className="grid gap-4 md:grid-cols-3">

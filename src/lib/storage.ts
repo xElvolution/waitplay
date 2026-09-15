@@ -36,7 +36,10 @@ export function getSessions(): SessionRecord[] {
 }
 
 export function saveSession(session: SessionRecord): void {
-  const next = [session, ...getSessions()].slice(0, 50);
+  const next = [session, ...getSessions().filter((s) => s.id !== session.id)].slice(
+    0,
+    50
+  );
   writeJson(SESSIONS_KEY, next);
 }
 

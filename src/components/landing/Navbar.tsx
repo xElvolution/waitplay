@@ -24,9 +24,12 @@ export function Navbar() {
           <Link href="/history" className="transition hover:text-white">
             History
           </Link>
+          <Link href="/settings" className="transition hover:text-white">
+            Settings
+          </Link>
         </nav>
-        <Link href="/demo">
-          <Button size="sm">Open demo</Button>
+        <Link href="/session">
+          <Button size="sm">Open session</Button>
         </Link>
       </div>
     </header>

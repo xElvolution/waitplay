@@ -19,7 +19,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@waitplay/sdk": ["./sdk/waitplay/src/index.ts"],
+      "@waitplay/sdk/*": ["./sdk/waitplay/src/*"]
     }
   },
   "include": [
